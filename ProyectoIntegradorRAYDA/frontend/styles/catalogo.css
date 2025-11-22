@@ -1,104 +1,177 @@
+/* --- ESTILOS BASE Y TIPOGRAFÍA --- */
 body {
-    font-family: Arial, sans-serif;
+    /* Fuente moderna y más legible */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin: 0;
-    background-color: #f8f9fa;
+    /* Fondo ligeramente más oscuro para contraste */
+    background-color: #e9ecef; 
+    color: #343a40; /* Color de texto base */
 }
 
+/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
 header {
-    background-color: #34495e;
+    background-color: #2c3e50; /* Azul oscuro corporativo */
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem; /* Más padding horizontal */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Sombra para efecto flotante/separación */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    position: sticky; /* Opcional: Mantiene el header visible al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+/* Estilo del logo (imagen y texto) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo img {
+    width: 40px; /* Tamaño del logo un poco más compacto */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px; /* Bordes redondeados para el logo */
 }
 
 header h1 {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-nav a {
-    color: white;
-    margin-left: 1rem;
+/* --- ESTILOS DE LA NAVEGACIÓN (NAV) --- */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio entre los enlaces */
+}
+
+/* **MODIFICACIÓN CLAVE:** Estilo claro para los enlaces del header */
+.nav-link { 
+    color: #ecf0f1; /* Color blanco claro, se ve bien sobre el fondo oscuro */
+    margin-left: 0; /* Aseguramos que no haya margen extra */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Estilo al pasar el mouse por los enlaces */
+.nav-link:hover {
+    background-color: #34495e; /* Fondo sutil al pasar el mouse */
+    color: #ffffff;
+}
+
+/* Estilo para la página activa (opcional, si estás en "Lista") */
+.nav-active {
+    background-color: #3498db; /* Color de acento para la sección activa */
+    font-weight: 600;
+}
+
+.nav-active:hover {
+    background-color: #2980b9;
+}
+
+/* --- ESTILOS DEL CONTENIDO PRINCIPAL (MAIN) --- */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor del catálogo */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
+    /* Grid más flexible y moderno */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 1.5rem;
 }
 
+/* --- ESTILOS DE LA TARJETA (CARD) --- */
 .card {
     background: white;
-    border-radius: 10px;
+    border-radius: 12px; /* Bordes más suaves */
     padding: 1rem;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    /* Sombra más pronunciada para profundidad */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
     text-align: center;
+    transition: transform 0.2s ease; /* Efecto al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
 }
 
 .card img {
     width: 100%;
-    height: 150px;
+    height: 160px; /* Altura ligeramente mayor */
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px; /* Bordes en la imagen */
+    margin-bottom: 0.75rem;
 }
 
-.card button {
-    background: #27ae60;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 0.5rem;
-}
-
-.card button:hover {
-    background: #2ecc71;
+.card h3 {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.25rem;
 }
 
 .card p {
-    margin: 0.3rem 0;
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: #6c757d;
 }
 
-.btn-agregar {
-    background-color: #3498db;
-    color: white;
+/* --- ESTILOS DE BOTONES (BUTTONS) --- */
+/* Estilo base para todos los botones de la tarjeta (si los hay) */
+.card button {
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
     cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Estilo específico para el botón "Agregar" */
+.btn-agregar {
+    background-color: #3498db; /* Color de acento primario (azul) */
+    color: white;
 }
 
 .btn-agregar:hover {
     background-color: #2980b9;
+    transform: translateY(-1px);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-  gap: 0.8rem;
+/* --- ESTILOS DE PIE DE PÁGINA (FOOTER) --- */
+footer {
+    background-color: #34495e;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
-.logo img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-
-/* Toast temporal para confirmaciones de adición */
+/* --- TOAST/NOTIFICACIÓN (SIN CAMBIOS SIGNIFICATIVOS) --- */
 .app-toast {
     position: fixed;
     right: 18px;
     bottom: 18px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9); /* Más oscuro para pop-up */
     color: #fff;
-    padding: 8px 12px;
+    padding: 10px 15px;
     border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
     z-index: 9999;
     opacity: 0;
     transition: opacity 0.25s ease;
