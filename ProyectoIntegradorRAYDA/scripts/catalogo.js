@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.classList.add("card");
 
         card.innerHTML = `
-          <img src="../../assets/${producto.imagen}" alt="${producto.nombre}">
+          <img src="../../assets/${producto.nombre}.jpg" alt="${producto.nombre}" />
           <h3>${producto.nombre}</h3>
           <p><strong>Cantidad:</strong> ${producto.cantidad}</p>
           <p><strong>Ubicación:</strong> ${producto.lugar}</p>

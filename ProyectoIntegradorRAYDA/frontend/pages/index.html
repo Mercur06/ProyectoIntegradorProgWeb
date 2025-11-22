@@ -14,18 +14,20 @@
             <img src="../../assets/Rayda.jpg" alt="Logo Construcción MX">
             <h1>Construcción MX</h1>
         </div>
-        <a id="admin-agregar" href="agregar_producto.html" style="display:none">➕ Agregar</a>
-        <a id="admin-registros" href="registros.html" style="display:none">📜 Registros</a>
-        <a href="lista.html">🧾 Lista</a>
-        <a id="link-logout" href="#" style="display:none">🚪 Salir</a>
-        <span id="admin-links"></span>
+        
+        <nav class="main-nav">
+            <a id="admin-agregar" href="agregar_producto.html" style="display:none" class="nav-link">➕ Agregar</a>
+            <a id="admin-registros" href="registros.html" style="display:none" class="nav-link">📜 Registros</a>
+            <a href="lista.html" class="nav-link nav-active">🧾 Lista</a>
+            <a id="link-logout" href="#" style="display:none" class="nav-link">🚪 Salir</a>
+            <span id="admin-links"></span>
         </nav>
     </header>
 
 
     <main>
         <section id="catalogo" class="grid-container">
-            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            <p id="loading-message">Cargando productos...</p>
         </section>
     </main>
 
@@ -41,6 +43,8 @@
         (async () => {
             await ensureAuth();
             await showAdminLinks('admin-links');
+            // Opcional: Ocultar el mensaje de carga después de cargar datos
+            document.getElementById('loading-message').style.display = 'none';
         })();
     </script>
 </body>
